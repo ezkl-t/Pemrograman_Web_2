@@ -23,8 +23,8 @@ use App\Http\Controllers\SessionController;
 Route::get('admin', [AdminController::class, 'index']);
 Route::get('admin/{id}', [AdminController::class, "detail"]);
 
-Route::get('/', [HalamanController::class, 'index']);
-Route::get('/index', [HalamanController::class, 'index']);
+Route::get('/', [HalamanController::class, 'index'])->middleware('isLogin');
+Route::get('/index', [HalamanController::class, 'index'])->middleware('isLogin');
 Route::get('index/{id}', [HalamanController::class, "detail"]);
 Route::get('/login', [HalamanController::class, 'login']);
 
